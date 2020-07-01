@@ -29,6 +29,7 @@ import ToggleSwitch from './switch';
 import PasswordInputText from './passwordInput';
 import SmoothPinCodeInput from './pinInput';
 import Toast from 'react-native-simple-toast';
+import ModalDropdown from 'react-native-modal-dropdown';
 // import Snackbar from 'react-native-snackbar';
 import SnackBar from './snackbar';
 //first_image
@@ -91,18 +92,30 @@ class MenuPage extends Component {
                 alignItems: 'center',
                 paddingRight: 15,
               }}>
-              <Text
-                style={{
+              <ModalDropdown options={['1 km', '2 km', '3 km', '4 km', '5 km', '6 km', '7 km']} 
+              defaultValue="1 km"
+              showsVerticalScrollIndicator={false}
+                textStyle={{
                   fontSize: 25,
                   color: '#00006f',
                   fontFamily: 'Heebo-Medium',
-                }}>
-                5 km
-              </Text>
-              <Image
-                source={Dropdown_arrow}
-                style={{height: 7, width: 15, marginTop: '15%'}}
-              />
+                  paddingRight: 15,
+                }}
+                dropdownTextStyle={{
+                  fontSize: 20,
+                  color: '#00006f',
+                  fontFamily: 'Heebo-Medium',
+                }}
+                dropdownStyle={{
+                  height:344,
+                }}
+                backgroundColor="transparent"
+               />
+
+               <Image
+                  source={Dropdown_arrow}
+                  style={{height: 7, width: 15, marginTop: '15%'}}
+                />
             </View>
           </View>
           <View
