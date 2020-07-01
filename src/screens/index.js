@@ -171,6 +171,12 @@ class MenuPage extends Component {
                 borderRadius: 10,
               }}>
               <SmoothPinCodeInput
+              containerStyle = {
+                {
+                  width: "100%",
+                  alignItems: 'center',
+                }
+              }
                 placeholder={
                   <View
                     style={{
@@ -228,7 +234,7 @@ class MenuPage extends Component {
               alignItems: 'center',
             }}>
             <Button
-              onPress={()=>{Toast.show("New is clicked")}}
+              onPress={()=>{Toast.show("Now is clicked")}}
               style={{
                 width: 145,
                 height: 55,
