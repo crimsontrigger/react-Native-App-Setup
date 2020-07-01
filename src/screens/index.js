@@ -28,6 +28,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import ToggleSwitch from './switch';
 import PasswordInputText from './passwordInput';
 import SmoothPinCodeInput from './pinInput';
+import Toast from 'react-native-simple-toast';
 // import Snackbar from 'react-native-snackbar';
 import SnackBar from './snackbar';
 //first_image
@@ -36,7 +37,15 @@ class MenuPage extends Component {
   constructor({navigation}, props) {
     super({navigation}, props);
     this.navigation = navigation;
-    this.state = {isOn: false, password: ''};
+    this.state = {
+      isOn: false,
+      password: '',
+      optInterval0_12: true,
+      optInterval12_20: false,
+      optServiceMechanic: true,
+      optServiceServant: false,
+      optServiceBusinessman: false,
+    };
   }
 
   componentDidMount() {
@@ -206,6 +215,7 @@ class MenuPage extends Component {
               alignItems: 'center',
             }}>
             <Button
+              onPress={()=>{Toast.show("New is clicked")}}
               style={{
                 width: 145,
                 height: 55,
@@ -243,6 +253,7 @@ class MenuPage extends Component {
               </Text>
             </Button>
             <Button
+              onPress={()=>{Toast.show("View all is clicked")}}
               style={{
                 width: 75,
                 height: 45,
@@ -280,10 +291,11 @@ class MenuPage extends Component {
               padding: 20,
             }}>
             <Button
+            onPress={()=>{this.setState({optInterval0_12:true, optInterval12_20:false})}}
               style={{
                 width: 125,
                 height: 45,
-                backgroundColor: '#2b2b81',
+                backgroundColor: this.state.optInterval0_12?'#2b2b81':'white',
                 shadowColor: '#000',
                 shadowOffset: {
                   width: 0,
@@ -309,7 +321,7 @@ class MenuPage extends Component {
                 }}>
                 <Text
                   style={{
-                    color: 'white',
+                    color: !this.state.optInterval0_12?'#2b2b81':'white',
                     fontSize: 20,
                     marginLeft: '25%',
                     fontFamily: 'Heebo-Medium',
@@ -321,7 +333,7 @@ class MenuPage extends Component {
               <View style={{flex: 1}}>
                 <Text
                   style={{
-                    color: 'white',
+                    color: !this.state.optInterval0_12?'#2b2b81':'white',
                     fontSize: 10,
                     flex: 1,
                     fontFamily: 'Heebo-Medium',
@@ -331,10 +343,11 @@ class MenuPage extends Component {
               </View>
             </Button>
             <Button
+              onPress={()=>{this.setState({optInterval0_12:false, optInterval12_20:true})}}
               style={{
                 width: 125,
                 height: 45,
-                backgroundColor: 'white',
+                backgroundColor: this.state.optInterval12_20?'#2b2b81':'white',
                 shadowColor: '#000',
                 shadowOffset: {
                   width: 0,
@@ -359,7 +372,7 @@ class MenuPage extends Component {
                 }}>
                 <Text
                   style={{
-                    color: '#2b2b81',
+                    color: !this.state.optInterval12_20?'#2b2b81':'white',
                     fontSize: 20,
                     marginLeft: '25%',
                     fontFamily: 'Heebo-Medium',
@@ -379,12 +392,12 @@ class MenuPage extends Component {
                 <Icon
                   name="euro-symbol"
                   size={6}
-                  color="#2b2b81"
+                  color= {!this.state.optInterval12_20?'#2b2b81':'white'}
                   style={{paddingBottom: '75%'}}
                 />
                 <Text
                   style={{
-                    color: '#2b2b81',
+                    color: !this.state.optInterval12_20?'#2b2b81':'white',
                     fontSize: 10,
                     flex: 1,
                     paddingBottom: '75%',
@@ -411,15 +424,23 @@ class MenuPage extends Component {
               }}
             />
             <Button
+              onPress={() => {
+                this.setState({
+                  optServiceMechanic: true,
+                  optServiceBusinessman: false,
+                  optServiceServant: false,
+                });
+              }}
               style={{
                 height: 35,
                 marginRight: '3%',
                 width: 85,
+                borderRadius:5,
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
                 padding: 10,
-                backgroundColor: 'white',
+                backgroundColor: !this.state.optServiceMechanic?'white':'#2b2b81',
                 shadowColor: '#000',
                 shadowOffset: {
                   width: 0,
@@ -434,7 +455,7 @@ class MenuPage extends Component {
               }}>
               <Text
                 style={{
-                  color: '#2b2b81',
+                  color: this.state.optServiceMechanic?'white':'#2b2b81',
                   fontSize: 13,
                   fontFamily: 'Heebo-Medium',
                 }}>
@@ -442,15 +463,23 @@ class MenuPage extends Component {
               </Text>
             </Button>
             <Button
+              onPress={() => {
+                this.setState({
+                  optServiceMechanic: false,
+                  optServiceServant: true,
+                  optServiceBusinessman: false,
+                });
+              }}
               style={{
                 height: 35,
                 marginRight: '3%',
                 width: 85,
+                borderRadius:5,
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
                 padding: 10,
-                backgroundColor: 'white',
+                backgroundColor: !this.state.optServiceServant?'white':'#2b2b81',
                 shadowColor: '#000',
                 shadowOffset: {
                   width: 0,
@@ -465,7 +494,7 @@ class MenuPage extends Component {
               }}>
               <Text
                 style={{
-                  color: '#2b2b81',
+                  color: this.state.optServiceServant?'white':'#2b2b81',
                   fontSize: 13,
                   fontFamily: 'Heebo-Medium',
                 }}>
@@ -473,15 +502,23 @@ class MenuPage extends Component {
               </Text>
             </Button>
             <Button
+              onPress={() => {
+                this.setState({
+                  optServiceMechanic: false,
+                  optServiceBusinessman: true,
+                  optServiceServant: false,
+                });
+              }}
               style={{
                 height: 35,
                 marginRight: '3%',
                 width: 105,
+                borderRadius:5,
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
                 padding: 7,
-                backgroundColor: 'white',
+                backgroundColor: !this.state.optServiceBusinessman?'white':'#2b2b81',
                 shadowColor: '#000',
                 shadowOffset: {
                   width: 0,
@@ -496,7 +533,7 @@ class MenuPage extends Component {
               }}>
               <Text
                 style={{
-                  color: '#2b2b81',
+                  color: this.state.optServiceBusinessman?'white':'#2b2b81',
                   fontSize: 13,
                   fontFamily: 'Heebo-Medium',
                 }}>
