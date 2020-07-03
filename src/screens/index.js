@@ -320,7 +320,7 @@ class MenuPage extends Component {
             style={{
               display: 'flex',
               flexDirection: 'row',
-              justifyContent: 'flex-start',
+              justifyContent: 'center',
               alignItems: 'center',
               margin: 10,
               padding: 10,
@@ -329,7 +329,7 @@ class MenuPage extends Component {
             <Button
             onPress={()=>{this.setState({optInterval0_12:true, optInterval12_20:false})}}
               style={{
-                width: 125,
+                width: 120,
                 height: 45,
                 backgroundColor: this.state.optInterval0_12?'#2b2b81':'white',
                 shadowColor: '#000',
@@ -381,7 +381,7 @@ class MenuPage extends Component {
             <Button
               onPress={()=>{this.setState({optInterval0_12:false, optInterval12_20:true})}}
               style={{
-                width: 125,
+                width: 120,
                 height: 45,
                 backgroundColor: this.state.optInterval12_20?'#2b2b81':'white',
                 shadowColor: '#000',
@@ -447,7 +447,7 @@ class MenuPage extends Component {
                 style={{
                   marginLeft:20,
                   opacity:0.1,
-                  width: 125,
+                  width: 120,
                   height: 45,
                   backgroundColor: 'white',
                   shadowColor: '#000',
