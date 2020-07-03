@@ -320,9 +320,10 @@ class MenuPage extends Component {
             style={{
               display: 'flex',
               flexDirection: 'row',
-              justifyContent: 'center',
+              justifyContent: 'flex-start',
               alignItems: 'center',
-              margin: 20,
+              margin: 10,
+              padding: 10,
               overflow:'hidden',
             }}>
             <Button
