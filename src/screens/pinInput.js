@@ -13,7 +13,7 @@ import * as Animatable from 'react-native-animatable';
 const styles = StyleSheet.create({
   containerDefault: {},
   cellDefault: {
-    borderColor: 'gray',
+    borderColor: 'grey',
     borderWidth: 1,
   },
   cellFocusedDefault: {
